@@ -15,11 +15,11 @@
  */
 
 /*
- * Public API Surface of sample-plugin
+ * Public API Surface of suwinet-auth
  */
 
-export * from "./lib/plugins/sample-plugin/models";
-export * from "./lib/plugins/sample-plugin/sample-plugin-module";
-export * from "./lib/plugins/sample-plugin/sample-plugin.specification";
-export * from "./lib/plugins/sample-plugin/components/sample-plugin-configuration/sample-plugin-configuration.component";
-export * from "./lib/plugins/sample-plugin/components/sample-action-configuration/sample-action-configuration.component";
+export * from "./lib/plugins/suwinet-auth/models";
+export * from "./lib/plugins/suwinet-auth/suwinet-auth-module";
+export * from "./lib/plugins/suwinet-auth/suwinet-auth.specification";
+export * from "./lib/plugins/suwinet-auth/components/suwinet-auth-configuration/suwinet-auth-configuration.component";
+export * from "./lib/plugins/suwinet-auth/components/sample-action-configuration/sample-action-configuration.component";
