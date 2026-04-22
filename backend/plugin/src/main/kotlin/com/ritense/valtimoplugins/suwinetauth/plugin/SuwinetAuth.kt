@@ -5,7 +5,6 @@ import org.apache.cxf.endpoint.Client
 
 @PluginCategory("suwinet-authentication")
 interface SuwinetAuth {
-
     fun applyAuth(client: Client)
 
     enum class AuthType(

@@ -17,7 +17,6 @@
 package com.ritense.valtimoplugins.suwinetauth.plugin
 
 import com.ritense.plugin.annotation.Plugin
-import com.ritense.plugin.annotation.PluginCategory
 import com.ritense.plugin.annotation.PluginProperty
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.apache.cxf.configuration.jsse.TLSClientParameters
@@ -32,9 +31,9 @@ import javax.net.ssl.TrustManagerFactory
 @Plugin(
     key = "suwinet-auth",
     title = "Suwinet Auth plugin",
-    description = "Plugin delivering authentication for Suwinet plugin"
+    description = "Plugin delivering authentication for Suwinet plugin",
 )
-open class SuwinetAuthPlugin(): SuwinetAuth {
+open class SuwinetAuthPlugin : SuwinetAuth {
     @PluginProperty(key = "authType", secret = false, required = true)
     var authType: String? = null
 
@@ -65,22 +64,19 @@ open class SuwinetAuthPlugin(): SuwinetAuth {
     private var keystoreManagerFactory: KeyManagerFactory? = null
     private var trustManagerFactory: TrustManagerFactory? = null
 
-
     override fun applyAuth(client: Client) {
-
-        when(authType) {
-            SuwinetAuth.AuthType.MTLS.authType ->  addMtlsAuth(client)
+        when (authType) {
+            SuwinetAuth.AuthType.MTLS.authType -> addMtlsAuth(client)
             SuwinetAuth.AuthType.BASIC.authType -> addBasicAuth(client)
             SuwinetAuth.AuthType.HEADER.authType -> addHeaderAuth(client)
             else -> {
                 logger.warn { "Unsupported auth type $authType" }
             }
         }
-
     }
 
     private fun addHeaderAuth(client: Client) {
-        logger.info { "using authorization type ${authType}" }
+        logger.info { "using authorization type $authType" }
 
         client.outInterceptors.add(HttpHeaderInterceptor(headerName, headerValue))
     }
@@ -88,13 +84,12 @@ open class SuwinetAuthPlugin(): SuwinetAuth {
     private fun addBasicAuth(client: Client) {
         var conduit = client.conduit as HTTPConduit
         conduit.authorization = basicAuthorization()
-        logger.info { "using authorization type ${authType}" }
+        logger.info { "using authorization type $authType" }
         logger.info { "set conduit.authorization type to ${conduit.authorization.authorizationType}" }
-
     }
 
     private fun addMtlsAuth(client: Client) {
-        logger.info { "using authorization type ${authType}" }
+        logger.info { "using authorization type $authType" }
 
         var conduit = client.conduit as HTTPConduit
 
@@ -119,10 +114,9 @@ open class SuwinetAuthPlugin(): SuwinetAuth {
 
     private fun buildKeyManagerFactory(
         keystoreCertificate: String? = null,
-        keystoreKey: String? = null
-    ): KeyManagerFactory? {
-
-        return if (keystoreCertificate.isNullOrEmpty() || keystoreKey.isNullOrEmpty()) {
+        keystoreKey: String? = null,
+    ): KeyManagerFactory? =
+        if (keystoreCertificate.isNullOrEmpty() || keystoreKey.isNullOrEmpty()) {
             logger.info { "Keystore not set" }
             null
         } else {
@@ -133,13 +127,12 @@ open class SuwinetAuthPlugin(): SuwinetAuth {
             keystoreManagerFactory?.init(keyStore, keystoreKey.toCharArray())
             keystoreManagerFactory
         }
-    }
 
     private fun buildTrustManagerFactory(
         truststoreCertificate: String? = null,
-        truststoreKey: String? = null
-    ): TrustManagerFactory? {
-        return if (truststoreCertificate.isNullOrEmpty() || truststoreKey.isNullOrEmpty()) {
+        truststoreKey: String? = null,
+    ): TrustManagerFactory? =
+        if (truststoreCertificate.isNullOrEmpty() || truststoreKey.isNullOrEmpty()) {
             logger.info { "Truststore not set." }
             null
         } else {
@@ -151,10 +144,8 @@ open class SuwinetAuthPlugin(): SuwinetAuth {
             trustManagerFactory?.init(trustStore)
             trustManagerFactory
         }
-    }
 
     companion object {
         private val logger = KotlinLogging.logger { }
     }
-
 }

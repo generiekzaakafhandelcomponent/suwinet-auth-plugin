@@ -20,12 +20,8 @@ import com.ritense.plugin.PluginFactory
 import com.ritense.plugin.service.PluginService
 import com.ritense.valtimoplugins.suwinetauth.plugin.SuwinetAuthPlugin
 
-
 open class SuwinetAuthPluginFactory(
     pluginService: PluginService,
-): PluginFactory<SuwinetAuthPlugin>(pluginService) {
-
-    override fun create(): SuwinetAuthPlugin {
-        return SuwinetAuthPlugin()
-    }
+) : PluginFactory<SuwinetAuthPlugin>(pluginService) {
+    override fun create(): SuwinetAuthPlugin = SuwinetAuthPlugin()
 }

@@ -8,10 +8,8 @@ import org.springframework.context.annotation.Bean
 
 @AutoConfiguration
 class SuwinetAuthAutoConfiguration {
-
     @Bean
     @ConditionalOnMissingBean(SuwinetAuthPluginFactory::class)
-    fun createSuwinetAuthPluginFactory(pluginService: PluginService): SuwinetAuthPluginFactory {
-        return SuwinetAuthPluginFactory(pluginService)
-    }
+    fun createSuwinetAuthPluginFactory(pluginService: PluginService): SuwinetAuthPluginFactory =
+        SuwinetAuthPluginFactory(pluginService)
 }
