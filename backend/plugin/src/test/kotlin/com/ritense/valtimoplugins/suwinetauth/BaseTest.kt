@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-/*
- * Public API Surface of suwinet-auth
- */
+package com.ritense.valtimoplugins.suwinetauth
 
-export * from './lib/models';
-export * from './lib/suwinet-auth-plugin.module';
-export * from './lib/suwinet-auth-plugin.specification';
-export * from './lib/components/suwinet-auth-configuration/suwinet-auth-configuration.component';
+abstract class BaseTest

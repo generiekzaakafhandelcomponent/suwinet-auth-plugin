@@ -73,9 +73,9 @@ import {SwaggerModule} from "@valtimo/swagger";
 import {TaskModule} from "@valtimo/task";
 import {TeamsModule} from "@valtimo/teams";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {SuwinetAuthPluginModule, suwinetAuthPluginSpecification} from "@valtimo-plugins/suwinet-auth";
 import {environment} from "../environments/environment";
 
-import {SamplePluginModule, samplePluginSpecification,} from "@valtimo-plugins/suwinet-auth";
 
 export function tabsFactory() {
   return new Map<string, object>([
@@ -124,7 +124,8 @@ export function tabsFactory() {
     ProcessModule,
     ReactiveFormsModule,
     ResourceModule,
-    SamplePluginModule,
+
+    SuwinetAuthPluginModule,
     SecurityModule,
     SseModule,
     SwaggerModule,
@@ -144,9 +145,7 @@ export function tabsFactory() {
   providers: [
     {
       provide: PLUGINS_TOKEN,
-      useValue: [
-        samplePluginSpecification,
-      ],
+      useValue: [suwinetAuthPluginSpecification],
     },
   ],
   bootstrap: [AppComponent],

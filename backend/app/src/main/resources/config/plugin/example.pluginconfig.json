@@ -1,10 +1,12 @@
 [
-    {
-        "id": "4ac9a49f-4aeb-4f91-86d9-853fd95a1b33",
-        "title": "Suwinet Auth plugin (Autodeployed)",
-        "pluginDefinitionKey": "suwinet-auth",
-        "properties": {
-            "apiUrl": "https://timeapi.io/api/time/current/zone?timeZone=Europe/Amsterdam"
-        }
+  {
+    "id": "97147661-837b-48e8-a74e-f4461dd13011",
+    "title": "Suwinet Basic Auth",
+    "pluginDefinitionKey": "suwinet-auth",
+    "properties": {
+      "basicAuthName": "user",
+      "basicAuthSecret": "pwd",
+      "authType": "BASIC"
     }
+  }
 ]

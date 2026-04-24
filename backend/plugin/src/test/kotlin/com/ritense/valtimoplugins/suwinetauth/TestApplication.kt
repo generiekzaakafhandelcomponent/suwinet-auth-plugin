@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 
-/*
- * Public API Surface of suwinet-auth
- */
+package com.ritense.valtimoplugins.suwinetauth
 
-export * from './lib/models';
-export * from './lib/suwinet-auth-plugin.module';
-export * from './lib/suwinet-auth-plugin.specification';
-export * from './lib/components/suwinet-auth-configuration/suwinet-auth-configuration.component';
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
+@SpringBootApplication
+class TestApplication
+
+fun main(args: Array<String>) {
+    runApplication<TestApplication>(*args)
+}

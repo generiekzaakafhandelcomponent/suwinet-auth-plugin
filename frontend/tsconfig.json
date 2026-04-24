@@ -31,6 +31,9 @@
             ],
             "@valtimo-plugins/": [
                 "projects/plugin/src/public_api.ts"
+            ],
+            "@valtimo-plugins/suwinet-auth": [
+                "projects/plugin/src/public_api.ts"
             ]
         }
     },
