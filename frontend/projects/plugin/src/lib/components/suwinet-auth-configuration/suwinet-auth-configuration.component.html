@@ -44,7 +44,7 @@
             (valueChange)="radioValueChange($event)"
     >
     </v-radio>
-    <ng-container *ngIf="(selectedAuthType$|async).value == 'MTLS'">
+    <ng-container *ngIf="(selectedAuthType$|async).value === 'MTLS'">
         <v-input
                 name="keystorePath"
                 [title]="'keystorePath' | pluginTranslate: pluginId | async"
@@ -88,7 +88,7 @@
         >
         </v-input>
     </ng-container>
-    <ng-container *ngIf="(selectedAuthType$|async).value == 'BASIC'">
+    <ng-container *ngIf="(selectedAuthType$|async).value === 'BASIC'">
         <v-input
                 name="basicAuthName"
                 [title]="'basicAuthName' | pluginTranslate: pluginId | async"
@@ -111,7 +111,7 @@
         >
         </v-input>
     </ng-container>
-    <ng-container *ngIf="(selectedAuthType$|async).value == 'HEADER'">
+    <ng-container *ngIf="(selectedAuthType$|async).value === 'HEADER'">
         <v-input
                 name="headerName"
                 [title]="'headerName' | pluginTranslate: pluginId | async"
