@@ -69,7 +69,7 @@ open class SuwinetAuthPlugin : SuwinetAuth {
             SuwinetAuth.AuthType.MTLS.authType -> addMtlsAuth(client)
             SuwinetAuth.AuthType.BASIC.authType -> addBasicAuth(client)
             SuwinetAuth.AuthType.HEADER.authType -> addHeaderAuth(client)
-            SuwinetAuth.AuthType.EXTERN.authType -> {}
+            SuwinetAuth.AuthType.EXTERN.authType -> logger.info { "using authorization type $authType (externally managed)" }
             else -> {
                 logger.warn { "Unsupported auth type $authType" }
             }

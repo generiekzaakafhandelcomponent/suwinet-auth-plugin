@@ -32,7 +32,7 @@
     [required]="true"
     [tooltip]="'configurationTitleTooltip' | pluginTranslate: pluginId | async"
     [widthPx]="350"
-    placeholder="suwinet-auth Plugin"
+    [placeholder]="'configurationTitlePlaceholder' | pluginTranslate: pluginId | async"
   >
   </v-input>
     <v-radio
@@ -133,6 +133,9 @@
                 [required]="false"
         >
         </v-input>
+    </ng-container>
+    <ng-container *ngIf="(selectedAuthType$ | async)?.value === 'EXTERN'">
+      <p>{{ 'externDescription' | pluginTranslate: pluginId | async }}</p>
     </ng-container>
 </v-form>
 </ng-container>
