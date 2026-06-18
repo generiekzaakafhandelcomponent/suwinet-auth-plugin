@@ -41,8 +41,9 @@ export class SuwinetAuthConfigurationComponent
     readonly mtlsRadio = {value: 'MTLS', title: 'MTLS'};
     readonly basicRadio = {value: 'BASIC', title: 'Basic'};
     readonly headerRadio = {value: 'HEADER', title: 'Header'};
+    readonly externRadio = {value: 'EXTERN', title: 'Extern'};
 
-    readonly authTypeOptions: Array<RadioValue> = [this.mtlsRadio, this.basicRadio, this.headerRadio]
+    readonly authTypeOptions: Array<RadioValue> = [this.mtlsRadio, this.basicRadio, this.headerRadio, this.externRadio]
 
     constructor(
     ) {
@@ -64,6 +65,8 @@ export class SuwinetAuthConfigurationComponent
                     this.selectedAuthType$.next(this.basicRadio)
                 } else if (config.authType === this.headerRadio.value) {
                     this.selectedAuthType$.next(this.headerRadio)
+                } else if (config.authType === this.externRadio.value) {
+                    this.selectedAuthType$.next(this.externRadio)
                 }
             }
         })).subscribe((authConfig) => {
@@ -91,6 +94,8 @@ export class SuwinetAuthConfigurationComponent
                 this.selectedAuthType$.next(this.basicRadio)
             } else if (radioValue === this.headerRadio.value) {
                 this.selectedAuthType$.next(this.headerRadio)
+            } else if (radioValue === this.externRadio.value) {
+                this.selectedAuthType$.next(this.externRadio)
             }
         }
     }
@@ -111,6 +116,8 @@ export class SuwinetAuthConfigurationComponent
             valid = !!(formValue.headerName
                 && formValue.headerValue
                 && formValue.configurationTitle)
+        } else if (formValue.authType === this.externRadio.value) {
+            valid = !!formValue.configurationTitle
         }
 
         this.valid$.next(valid);

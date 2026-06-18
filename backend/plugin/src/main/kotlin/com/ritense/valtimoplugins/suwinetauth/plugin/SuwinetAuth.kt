@@ -13,5 +13,6 @@ interface SuwinetAuth {
         MTLS("MTLS"),
         BASIC("BASIC"),
         HEADER("HEADER"),
+        EXTERN("EXTERN")
     }
 }
