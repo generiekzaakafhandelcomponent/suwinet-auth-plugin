@@ -71,6 +71,14 @@ jobs:
             
             Please review this pull request with plugin-pr-reviewer agent.
 
+            Only read and review files under these paths:
+              - frontend/projects/plugin/
+              - backend/plugin/
+              - build.gradle.kts
+              - settings.gradle.kts
+            
+            Do NOT read files outside these directories.
+
             Note: The PR branch is already checked out in the current working directory.
       - name: "✅ Update progress comment (success)"
         if: success()
