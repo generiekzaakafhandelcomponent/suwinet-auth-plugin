@@ -70,7 +70,7 @@ export class SuwinetAuthConfigurationComponent
                 }
             }
         })).subscribe((authConfig) => {
-            console.log(" do prefill")
+            console.log(" do prefill");
         })
 
         this.openSaveSubscription();
