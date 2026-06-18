@@ -1,0 +1,6 @@
+# Release notes
+
+Overzicht van wijzigingen per versie van de Suwinet Auth-plugin.
+
+## 1.0.1
+Eerste publieke release: ondergebracht in een eigen repository met voorbeeldapplicatie en aparte documentatie, voor authenticatie naar de Suwinet SOAP-koppelingen.
