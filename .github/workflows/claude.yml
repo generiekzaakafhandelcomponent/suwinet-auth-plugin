@@ -63,8 +63,10 @@ jobs:
           path_to_claude_code_executable: ${{ env.CLAUDE_PATH }}
           track_progress: true
           claude_args: |
-            --max-turns 20
+            --max-turns 5
             --model claude-sonnet-4-6
+            --allowed_tools: Read
+
           prompt: |
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
