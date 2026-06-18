@@ -65,7 +65,7 @@ jobs:
           claude_args: |
             --max-turns 5
             --model claude-sonnet-4-6
-            --allowed_tools: Read
+            --allowed_tools Read
 
           prompt: |
             REPO: ${{ github.repository }}
