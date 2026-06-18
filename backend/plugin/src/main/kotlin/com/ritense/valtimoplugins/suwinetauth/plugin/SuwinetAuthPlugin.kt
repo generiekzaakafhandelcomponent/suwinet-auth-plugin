@@ -117,15 +117,15 @@ open class SuwinetAuthPlugin : SuwinetAuth {
         keystoreCertificate: String? = null,
         keystoreKey: String? = null,
     ): KeyManagerFactory? =
-        if (keystoreCertificate.isNullOrEmpty() || keystoreKey.isNullOrEmpty()) {
+        if (keystoreCertificate.isNullOrEmpty()) {
             logger.info { "Keystore not set" }
             null
         } else {
             logger.info { "wsgKeyManagerFactory certificate: $keystoreCertificate" }
             val keyStore = KeyStore.getInstance("jks")
-            keyStore.load(FileInputStream(keystoreCertificate), keystoreKey.toCharArray())
+            keyStore.load(FileInputStream(keystoreCertificate), keystoreKey?.toCharArray())
             keystoreManagerFactory = KeyManagerFactory.getInstance("SunX509")
-            keystoreManagerFactory?.init(keyStore, keystoreKey.toCharArray())
+            keystoreManagerFactory?.init(keyStore, keystoreKey?.toCharArray())
             keystoreManagerFactory
         }
 
@@ -133,14 +133,14 @@ open class SuwinetAuthPlugin : SuwinetAuth {
         truststoreCertificate: String? = null,
         truststoreKey: String? = null,
     ): TrustManagerFactory? =
-        if (truststoreCertificate.isNullOrEmpty() || truststoreKey.isNullOrEmpty()) {
+        if (truststoreCertificate.isNullOrEmpty()) {
             logger.info { "Truststore not set." }
             null
         } else {
             val trustStore = KeyStore.getInstance("jks")
             logger.info { "wsgTrustManagerFactory certificate: $truststoreCertificate" }
 
-            trustStore.load(FileInputStream(truststoreCertificate), truststoreKey.toCharArray())
+            trustStore.load(FileInputStream(truststoreCertificate), truststoreKey?.toCharArray())
             trustManagerFactory = TrustManagerFactory.getInstance("SunX509")
             trustManagerFactory?.init(trustStore)
             trustManagerFactory
