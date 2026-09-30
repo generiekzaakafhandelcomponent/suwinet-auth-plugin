@@ -2,6 +2,10 @@
 
 Overzicht van wijzigingen per versie van de Suwinet Auth-plugin.
 
+## 1.1.3
+
+Ondersteuning voor Valtimo 13.48.0.
+
 ## 1.1.2
 
 Valtimo bijgewerkt naar versie 13.41.0.
